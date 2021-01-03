@@ -2,10 +2,10 @@ package app
 
 import (
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestApp(t *testing.T) {
-	if Start() != nil {
-		t.Error("Start failed")
-	}
+	assert.NotNil(t, Start())
 }
