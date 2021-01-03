@@ -1,3 +1,3 @@
-module github.com/jonioliveira/base-go
+module github.com/jonioliveira/eq-json
 
 go 1.15

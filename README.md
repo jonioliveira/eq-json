@@ -1,4 +1,4 @@
-# base-go
+# eq-json
 
 Base template for go projects
 ## Development Requirements
@@ -14,7 +14,7 @@ Note: The project was created with this specific version but older versions migh
 You need to run the commands to install the pre-commit:
 
 ```sh
-make pre-commit install
+make pre-commit-install
 ```
 
 It is recommended to install the git hooks present in `/githooks` folder:

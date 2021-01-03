@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/jonioliveira/base-go/pkg/app"
+	"github.com/jonioliveira/eq-json/pkg/app"
 )
 
 func main() {
@@ -11,5 +11,5 @@ func main() {
 		fmt.Printf("error while running app, %s", err)
 	}
 
-	fmt.Printf("Hello %s", "Base-Go")
+	fmt.Printf("Hello %s", "eq-json")
 }

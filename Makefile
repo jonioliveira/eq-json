@@ -1,11 +1,11 @@
 .DEFAULT_GOAL := help
 
 # Environment variables used by commands called from make (cannot be make variables).
-export PROJECT_NAME?=base-go
+export PROJECT_NAME?=eq-json
 export LC_ALL=en_US.UTF-8
 export PROJECT_ROOT=$(shell pwd)
 export PATH=$(shell (echo "$$(go env GOPATH 2> /dev/null)/bin:" || echo ""))$(shell echo $$PATH)
-export REPOSITORY?=jonioliveira/base-go
+export REPOSITORY?=jonioliveira/eq-json
 export VERSION?=dev-latest
 
 DOCKER_LOCAL_IMAGE=$(REPOSITORY):dev-local
@@ -222,6 +222,6 @@ run: docker-run-app
 .PHONY: clean
 clean: shell-clean-cache docker-clean
 
-pre-commit-install: docker-pre-commit-build docker-pre-commit-install docker-pre-commit-autoupdate
+pre-commit-install: docker-precommit-build docker-precommit-install docker-precommit-autoupdate
 
 pre-commit: docker-precommit-run
