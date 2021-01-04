@@ -20,11 +20,12 @@ CMD ["sleep infinity"]
 
 FROM dependency-cache AS build
 COPY . .
-RUN make shell-go-generate-build
+RUN make shell-go-build
 
 FROM gcr.io/distroless/base-debian10@sha256:e5768afa5429b85ac75de67efc98a4bf53e4ef0f7388667fb34c89d481d82b00 AS production
 ARG NAME
 USER 2000:2000
 WORKDIR /opt/app
+COPY assets "/opt/app/$NAME/assets"
 COPY --from=build /opt/app/bin/$NAME ./$NAME
 CMD ["/opt/app/$NAME"]
