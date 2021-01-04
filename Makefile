@@ -216,7 +216,7 @@ test: docker-test-app
 
 # target: run - Run the app {inside the container}.
 .PHONY: run
-run: docker-run-app
+run: docker-run-app-only
 
 # target: clean - Clean cache and local docker image.
 .PHONY: clean
