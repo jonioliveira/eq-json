@@ -1,5 +1,7 @@
 # eq-json
 
+[![Known Vulnerabilities](https://snyk.io/test/github/jonioliveira/eq-json/badge.svg?targetFile=build/package/Dockerfile)](https://snyk.io/test/github/jonioliveira/eq-json?targetFile=build/package/Dockerfile)
+
 Base template for go projects
 ## Development Requirements
 
@@ -34,6 +36,23 @@ find .git/hooks -type l -exec rm {} \; && find githooks -type f -exec ln -sf ../
 **NOTE: If you change the `.pre-commit-config.yaml` you need remove the githook path configuration**
 
 ## Getting started
+
+### Run project
+
+You have two options to run this project:
+
+- using run command and pass wht arguments
+
+```sh
+make run assets/file1.json assets/file2.json
+```
+
+- build binary and call the binary
+
+```sh
+make build
+./bin/eq.json assets/file1.json assets/file2.json
+```
 
 ## Golang code format and style guide
 

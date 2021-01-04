@@ -9,15 +9,15 @@ func JsonObjectsEquals(obj1, obj2 interface{}) bool {
 
 	switch obj1.(type) {
 	case map[string]interface{}:
-		return JsonMapsEquals(obj1.(map[string]interface{}), obj2.(map[string]interface{}))
+		return jsonMapsEquals(obj1.(map[string]interface{}), obj2.(map[string]interface{}))
 	case []interface{}:
-		return JsonArraysEquals(obj1.([]interface{}), obj2.([]interface{}))
+		return jsonArraysEquals(obj1.([]interface{}), obj2.([]interface{}))
 	default:
 		return obj1 == obj2
 	}
 }
 
-func JsonMapsEquals(map1, map2 map[string]interface{}) bool {
+func jsonMapsEquals(map1, map2 map[string]interface{}) bool {
 	if len(map1) != len(map2) {
 		return false
 	}
@@ -37,7 +37,7 @@ func JsonMapsEquals(map1, map2 map[string]interface{}) bool {
 	return true
 }
 
-func JsonArraysEquals(array1, array2 []interface{}) bool {
+func jsonArraysEquals(array1, array2 []interface{}) bool {
 
 	if len(array1) != len(array2) {
 		return false
