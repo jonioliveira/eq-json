@@ -25,19 +25,24 @@ func FilesAreEqual(file1, file2 []byte) (bool, error) {
 	return equality.JsonObjectsEquals(result1, result2), nil
 }
 
-func ReadFile(path string) ([]byte, error) {
-	jsonFile, err := os.Open(path)
-	if err != nil {
-		return nil, err
+func ReadFiles(paths []string) (map[string][]byte, error) {
+	filesContentMap := make(map[string][]byte)
+	for _, path := range paths {
+		jsonFile, err := os.Open(path)
+		if err != nil {
+			return nil, err
+		}
+
+		defer jsonFile.Close()
+
+		byteValue, _ := ioutil.ReadAll(jsonFile)
+
+		if !json.Valid(byteValue) {
+			return nil, fmt.Errorf("Invalid json file with path %s", path)
+		}
+
+		filesContentMap[path] = byteValue
 	}
 
-	defer jsonFile.Close()
-
-	byteValue, _ := ioutil.ReadAll(jsonFile)
-
-	if !json.Valid(byteValue) {
-		return nil, fmt.Errorf("Invalid json file")
-	}
-
-	return byteValue, nil
+	return filesContentMap, nil
 }
